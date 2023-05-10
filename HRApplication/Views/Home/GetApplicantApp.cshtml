@@ -1,0 +1,207 @@
+﻿@{
+    Layout = null;
+
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HRApplication</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/HRApplication.styles.css" asp-append-version="true" />
+
+    <!-- Font Icon -->
+    <link href="~/fonts/material-icon/css/material-design-iconic-font.min.css" rel="stylesheet" />
+    <link href="~/vendor/boostrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/vendor/acc-wizard-master/release/acc-wizard.min.css" rel="stylesheet" />
+
+    <!-- Main css -->
+    <link href="~/css/style.css" rel="stylesheet" />
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.4/dist/sweetalert2.all.min.js"></script>
+    <style>
+        .swal2-popup {
+            font-size: 14px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+    <div class="container">
+            <div class="acc-wizard">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default active">
+                        <div class="panel-heading" id="headingOne">
+                            <h3>
+                                <a href="#collapseOne" data-toggle="collapse" data-parent="#accordion">Personal infomation</a>
+                            </h3>
+                        </div>
+
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <partial name="PartialsEdit/_personalinfo" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" id="headingTwo">
+                            <h3>
+                                <a href="#collapseTwo" data-toggle="collapse" data-parent="#accordion">Education and Training</a>
+                            </h3>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <partial name="PartialsEdit/_Education" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" id="headingLang">
+                            <h3>
+                                <a href="#collapseLang" data-toggle="collapse" data-parent="#accordion">Language Skills</a>
+                            </h3>
+                        </div>
+                        <div id="collapseLang" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <partial name="PartialsEdit/_LanguageSkills" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" id="headingEmpLoyer">
+                            <h3>
+                                <a href="#collapseEmpLoyer" data-toggle="collapse" data-parent="#accordion">Work Experience</a>
+                            </h3>
+                        </div>
+                        <div id="collapseEmpLoyer" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <partial name="PartialsEdit/_EmpLoyer" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" id="headingAddintionalInfo">
+                            <h3>
+                                <a href="#collapseAddintionalInfo" data-toggle="collapse" data-parent="#accordion">Additional Information</a>
+                            </h3>
+                        </div>
+                        <div id="collapseAddintionalInfo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                @*<partial name="PartialsEdit/_EmpLoyer" />*@
+                                <partial name="PartialsEdit/_AddintionalInfo" />
+                            </div>
+                        </div>
+                    </div>
+
+                    @* <div class="panel panel-default">
+                    <div class="panel-heading" id="headingAddintionalInf">
+                    <h3>
+                    <a href="#collapseAddintionalInf" data-toggle="panel-collapse" data-parent="#accordion">Additional Information</a>
+                    </h3>
+                    </div>
+                    <div id="collapseAddintionalInf" class="panel-collapse collapse">
+                    <div class="panel-body">
+                    </div>
+                    </div>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!-- JS -->
+
+    <script src="~/vendor/boostrap/bootstrap.min.js"></script>
+    <script src="~/vendor/acc-wizard-master/release/acc-wizard.min.js"></script>
+    <script src="~/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/vendor/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="~/vendor/jquery-steps/jquery.steps.min.js"></script>
+    <script src="~/vendor/minimalist-picker/dobpicker.js"></script>
+    <script src="~/js/main.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+
+        let reqId = getParameterByName("requestId")
+            $.ajax({
+            url: `/Home/GetApplicantAppById?id=${reqId}`,
+                type: "GET",
+                datatype: "json",
+                contentType: "application/json",
+                success: async function (res) {
+                    if (res.succeded) {
+                        console.log(res.content);
+                        fillData(res.content);
+                        //console.log(res);
+                        //sendEmail(res.email, res.password, res.reqId);
+                        //SAlert(res.message, "success");
+                    }
+                    else {
+                        //SAlert(res.message, "error");
+                        // console.log("failuer")
+                        // failureToaster(res.message);;
+                    }
+                },
+                error: function (err) {
+                    console.log("error: ", err)
+                }
+            });
+            //window.location.replace(window.location.origin.concat("#collapseOne"));
+
+       
+        function fillData(appObj){
+            //personal info
+            $("#name").val(appObj.Name);
+            $("#address").val(appObj.address);
+            $("#email").val(appObj.email);
+            $("#nationality").val(appObj.nationality);
+            $("#appliedPosition").val(appObj.appliedPosition);
+            $("#phone").val(appObj.phone);
+            $('input[name=marital][value="' + appObj.marital + '"]').prop("disabled", false)
+            $('input[name=marital][value="' + appObj.marital + '"]').click()
+            $('input[name=marital][value="' + appObj.marital + '"]').prop("disabled", true)
+            
+            $("#birth_date").val(appObj.birth_date);
+            $("#highgSchoolName").val(appObj.highgSchoolName);
+            $("#highgSchoolDegree").val(appObj.highgSchoolDegree);
+            $("#highgSchoolGraduationDate").val(appObj.highgSchoolGraduationDate);
+            $("#highgSchoolMajor").val(appObj.highgSchoolMajor);
+            $("#universityName").val(appObj.universityName);
+            $("#universityDegree").val(appObj.universityDegree);
+            $("#universityGraduationDate").val(appObj.universityGraduationDate);
+            $("#additionalTraining").val(appObj.additionalTraining);
+            $("#computerSkills").val(appObj.computerSkills);
+            $("#universityMajor").val(appObj.universityMajor);
+            $("#arabicSpoken").val(appObj.arabicSpoken);
+            $("#arabicWritten").val(appObj.arabicWritten);
+            $("#arabicUnderstanding").val(appObj.arabicUnderstanding);
+            $("#englishSpoken").val(appObj.englishSpoken);
+            $("#englishWritten").val(appObj.englishWritten);
+            $("#englishUnderstanding").val(appObj.englishUnderstanding);
+            $("#applyAtRaya").val(appObj.applyAtRaya);
+            $('input[name=relatives][value="' + appObj.relatives + '"]').prop("disabled", false)
+            $('input[name=relatives][value="' + appObj.relatives + '"]').click()
+            $('input[name=relatives][value="' + appObj.relatives + '"]').prop("disabled", true)
+            $('input[name=currentlyEmployed][value="' + appObj.currentlyEmployed + '"]').prop("disabled", false)
+            $('input[name=currentlyEmployed][value="' + appObj.currentlyEmployed + '"]').click()
+            $('input[name=currentlyEmployed][value="' + appObj.currentlyEmployed + '"]').prop("disabled", true)
+        }
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+    </script>
+</body>
+</html>

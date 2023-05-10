@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add more experience" xml:space="preserve">
+    <value>إضافة خبرات جديدة </value>
+  </data>
+  <data name="Add More Languages" xml:space="preserve">
+    <value>إضافة لغات أخرى</value>
+  </data>
+  <data name="Additional Information" xml:space="preserve">
+    <value>معلومات إضافية </value>
+  </data>
+  <data name="Additional Training/ Professional Qualifications" xml:space="preserve">
+    <value>تدريبات /مؤهلات إضافية </value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="Ahmed" xml:space="preserve">
+    <value>أحمد</value>
+  </data>
+  <data name="Arabic" xml:space="preserve">
+    <value>العربية </value>
+  </data>
+  <data name="Are you currently employed" xml:space="preserve">
+    <value>هل انت موظف حاليا</value>
+  </data>
+  <data name="Computer Science" xml:space="preserve">
+    <value>علوم الكومبيوتر </value>
+  </data>
+  <data name="Computer Skills" xml:space="preserve">
+    <value>مهارات الكومبيوتر</value>
+  </data>
+  <data name="Date of birth" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="Degree" xml:space="preserve">
+    <value>الدرجة</value>
+  </data>
+  <data name="Do you have any relatives working at Raya?" xml:space="preserve">
+    <value>هل لديك أقارب يعملون في راية؟</value>
+  </data>
+  <data name="E.g." xml:space="preserve">
+    <value>مثال . </value>
+  </data>
+  <data name="Education and Training" xml:space="preserve">
+    <value>التعليم والتدريب </value>
+  </data>
+  <data name="Educational background" xml:space="preserve">
+    <value>الخلفية التعليمية </value>
+  </data>
+  <data name="Egypt, Cairo, 6 October" xml:space="preserve">
+    <value>مصر, القاهرة, مدينة 6 أكتوبر</value>
+  </data>
+  <data name="Egyptian" xml:space="preserve">
+    <value>مصري</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>الإنجليزية </value>
+  </data>
+  <data name="Excellent" xml:space="preserve">
+    <value>ممتاز</value>
+  </data>
+  <data name="Exempted" xml:space="preserve">
+    <value>معفي</value>
+  </data>
+  <data name="Experience end date must be after start date." xml:space="preserve">
+    <value>تاريخ النهاية يجب أن يكون بعد تاريخ البداية </value>
+  </data>
+  <data name="Fair" xml:space="preserve">
+    <value>متوسط</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>من</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>النوع </value>
+  </data>
+  <data name="German" xml:space="preserve">
+    <value>الألمانية</value>
+  </data>
+  <data name="Good" xml:space="preserve">
+    <value>جيد</value>
+  </data>
+  <data name="Graduation Date" xml:space="preserve">
+    <value>تاريخ التخرج</value>
+  </data>
+  <data name="Gross Salary" xml:space="preserve">
+    <value>الراتب الكلى</value>
+  </data>
+  <data name="High School" xml:space="preserve">
+    <value>المستوى الثانوي</value>
+  </data>
+  <data name="High School Name" xml:space="preserve">
+    <value>إسم المدرسة الثانوية </value>
+  </data>
+  <data name="How did you apply at Raya?" xml:space="preserve">
+    <value>كيف تقدمت في راية؟</value>
+  </data>
+  <data name="I don't have Experience yet" xml:space="preserve">
+    <value>ليس لدي خبرة بعد</value>
+  </data>
+  <data name="Institute/ University" xml:space="preserve">
+    <value>الجامعة / المؤسسة</value>
+  </data>
+  <data name="Job title" xml:space="preserve">
+    <value>الوظيفة </value>
+  </data>
+  <data name="Language Name" xml:space="preserve">
+    <value>إسم اللغة</value>
+  </data>
+  <data name="Language Skills" xml:space="preserve">
+    <value>المهارات اللغوية </value>
+  </data>
+  <data name="Major" xml:space="preserve">
+    <value>التخصص </value>
+  </data>
+  <data name="Marital Status" xml:space="preserve">
+    <value>الحالة الإجتماعية </value>
+  </data>
+  <data name="Military Status" xml:space="preserve">
+    <value>موقف التجنيد</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>الإسم</value>
+  </data>
+  <data name="Name of Organization" xml:space="preserve">
+    <value>إسم المنظمة </value>
+  </data>
+  <data name="Nationality" xml:space="preserve">
+    <value>الجنسية</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>التالي</value>
+  </data>
+  <data name="no" xml:space="preserve">
+    <value>لا</value>
+  </data>
+  <data name="Personal infomation" xml:space="preserve">
+    <value>المعلومات الشخصية </value>
+  </data>
+  <data name="Phone Number" xml:space="preserve">
+    <value>رقم الموبايل</value>
+  </data>
+  <data name="Position Applied for" xml:space="preserve">
+    <value>الوظيفة المقدم لها </value>
+  </data>
+  <data name="Reason for Leaving" xml:space="preserve">
+    <value>سبب المغادرة</value>
+  </data>
+  <data name="Remove Experience" xml:space="preserve">
+    <value>إلغاء الخبرة</value>
+  </data>
+  <data name="Remove Language" xml:space="preserve">
+    <value>حذف اللغة</value>
+  </data>
+  <data name="Science Section , Literary Section" xml:space="preserve">
+    <value>شعبة علمي , شعبة أدبي</value>
+  </data>
+  <data name="Single" xml:space="preserve">
+    <value>أعزب</value>
+  </data>
+  <data name="Software Developer" xml:space="preserve">
+    <value>مطور برامج</value>
+  </data>
+  <data name="Software Engineer" xml:space="preserve">
+    <value>مهندس برمجيات</value>
+  </data>
+  <data name="Spoken" xml:space="preserve">
+    <value>التحدث</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>تقديم الطلب</value>
+  </data>
+  <data name="This field is required." xml:space="preserve">
+    <value>هذا الحقل مطلوب </value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>إلى</value>
+  </data>
+  <data name="Understanding" xml:space="preserve">
+    <value>الفهم والإستيعاب</value>
+  </data>
+  <data name="University &amp; Fuculty Name" xml:space="preserve">
+    <value>إسم الجامعة و الكلية</value>
+  </data>
+  <data name="University Name" xml:space="preserve">
+    <value>إسم الجامعة </value>
+  </data>
+  <data name="Very Good" xml:space="preserve">
+    <value>جيد جداً</value>
+  </data>
+  <data name="Work Experience" xml:space="preserve">
+    <value>الخبرات العملية</value>
+  </data>
+  <data name="Written" xml:space="preserve">
+    <value>الكتابة </value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>نعم</value>
+  </data>
+  <data name="Your Email" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+</root>

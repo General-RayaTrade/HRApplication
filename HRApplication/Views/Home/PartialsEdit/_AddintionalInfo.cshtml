@@ -1,0 +1,183 @@
+﻿
+
+
+
+    <fieldset>
+        <div class="form-group">
+            <label for="applyAtRaya" class="form-label">How did you apply at Raya?</label>
+        <input type="text" id="applyAtRaya" disabled name="applyAtRaya" placeholder="Ex. LinkedIn" />
+        </div>
+        <div class="form-group ">
+            <label>Do you have any relatives working at Raya?</label>
+            <div class="d-flex align-items-center mt-4">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" disabled type="radio" name="relatives" id="relatives1"  value="yes">
+                    <label class="form-check-label " for="relatives1">yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+
+                <input class="form-check-input" disabled type="radio" name="relatives" id="relatives2" value="no">
+                    <label class="form-check-label" for="relatives2">no</label>
+                </div>
+
+
+
+            </div>
+        </div>
+        <div class="form-group ">
+            <label>Are you currently employed</label>
+            <div class="d-flex align-items-center mt-4">
+                <div class="form-check form-check-inline">
+                <input disabled class="form-check-input"  type="radio" name="currentlyEmployed" id="currentlyEmployed1" value="yes">
+                    <label class="form-check-label " for="currentlyEmployed1">yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+
+                <input disabled class="form-check-input" type="radio" name="currentlyEmployed" id="currentlyEmployed2" value="no">
+                    <label class="form-check-label" for="currentlyEmployed2">no</label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <div class="form-submit">
+    @*<button type="button" id="btnAddintionalInfo" class="ml-3 btn btn-primary" style="background-color:#0011f6;margin-left:10px">Submit</button>*@
+
+    </div>
+
+
+@*<script>
+    $("#btnAddintionalInfo").click(function(){
+        let numberOfExperienceContaiers = $(".experienceContaier").length;
+        for (let i = 0; i < numberOfExperienceContaiers; i++) {
+            
+            experiences.push({
+                organization: $(`#organization${i==0?'':i}`).val(),
+                jobTitle: $(`#jobTitle${i==0?'':i}`).val(),
+                salary: $(`#salary${i==0?'':i}`).val(),
+                from: $(`#from${i==0?'':i}`).val(),
+                To: $(`#To${i==0?'':i}`).val(),
+                reasonOfLeaving: $(`#reasonOfLeaving${i==0?'':i}`).val()
+            })
+        }
+        console.log(experiences);
+        let applicantApp={
+            "Name": $("#name").val(),
+            "address": $("#address").val(),
+            "phone": $("#phone").val(),
+            "email": $("#email").val(),
+            "gender": $("#gender").val(),
+            "birth_date": $("#birth_date").val(),
+            "nationality": $("#nationality").val(),
+            "Military": $("#Military").val(),
+            "marital": $('input[name=marital]:checked').val(),
+            "appliedPosition": $("#appliedPosition").val(),
+            "arabicSpoken": $("#arabicSpoken").val(),
+            "arabicWritten": $("#arabicWritten").val(),
+            "arabicUnderstanding": $("#arabicUnderstanding").val(),
+            "englishSpoken": $("#englishSpoken").val(),
+            "englishWritten": $("#englishWritten").val(),
+            "englishUnderstanding": $("#englishUnderstanding").val(),
+            "experiences": experiences,
+            "highgSchoolName": $("#highgSchoolName").val(),
+            "highgSchoolDegree": $("#highgSchoolDegree").val(),
+            "highgSchoolGraduationDate": $("#highgSchoolGraduationDate").val(),
+            "highgSchoolMajor": $("#highgSchoolMajor").val(),
+            "universityName": $("#universityName").val(),
+            "universityDegree": $("#universityDegree").val(),
+            "universityGraduationDate": $("#universityGraduationDate").val(),
+            "universityMajor": $("#universityMajor").val(),
+            "currentlyEmployed": $('input[name=currentlyEmployed]:checked').val(),
+            "relatives": $('input[name=relatives]:checked').val(),
+            "applyAtRaya": $("#applyAtRaya").val(),
+            "additionalTraining": $("#additionalTraining").val(),
+            "computerSkills": $("#computerSkills").val()
+        }
+        console.log(applicantApp);
+        $.ajax({
+            url: "Home/HrAppSubmition",
+            type: "POST",
+            datatype: "json",
+            data: JSON.stringify(applicantApp),
+            contentType: "application/json",
+            success: async function (res) {
+                if (res.succeded) {
+                      console.log(res);
+                      sendEmail(res.email , res.password, res.reqId);
+                      SAlert(res.message,"success");
+                }
+                else {
+                        SAlert(res.message,"error");
+                      // console.log("failuer") 
+                   // failureToaster(res.message);;
+                }
+            },
+            error: function (err) {
+                console.log("error: ", err)
+            }
+        });
+    
+    });
+
+    
+    function SAlert(msg , icon) {
+    Swal.fire({
+        title: "Applicant App",
+            text: msg,
+        icon: icon,
+        showCancelButton: false,
+        confirmButtonColor: "#8e24aa",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Okey",
+        cancelButtonText: "الغاء"
+    }).then(res => {
+        if (res.isConfirmed) {
+           $("input").val("");
+        }
+        else {
+           $("input").val("");
+        }
+    });;
+}
+
+
+
+
+    
+
+    function sendEmail(email , password , reqId){
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "toList": [
+                "abdelrahman_shawki@rayacorp.com" //RT_HR@rayacorp.com
+            ],
+            "ccList": [
+                "abdelrahman_shawki@rayacorp.com",
+                "ezzat_ahmed@rayacorp.com"
+            ],
+            "bccList": [],
+            "subject": "string",
+            "body": `<h3>Dear All,</h3> <p> You have new Shedule with request Id: ${reqId} </p> `,
+            "title": "New Hr Interview Schedule",
+            "host": "172.29.0.141",
+            "port": "25",
+            "from": email,
+            "password": password,
+            "isBodyHtml": true
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("http://www.rayatrade.com/ProgrammmingUtilities/api/EmailNotification", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+            
+    }
+</script>*@

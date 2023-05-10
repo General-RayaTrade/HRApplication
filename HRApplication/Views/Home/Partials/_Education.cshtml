@@ -1,0 +1,123 @@
+﻿
+
+<form id="educationForm" >
+    <fieldset>
+        <h4>@localizer["Educational background"]</h4>
+        <div>
+            <p> @localizer["High School"]</p>
+
+            <div class="form-row">
+                <div class="form-group">
+
+                    <label for="highgSchoolName" class="form-label">@localizer["High School Name"]</label>
+                    <input type="text" required name="highgSchoolName" id="highgSchoolName" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label for="highgSchoolDegree" class="form-label">@localizer["Degree"]</label>
+
+
+                    <select name="highgSchoolDegree" id="highgSchoolDegree" required class="form-control">
+                        <option value="Excellent">@localizer["Excellent"]</option>
+                        <option value="Very Good">@localizer["Very Good"]</option>
+                        <option value="Good">@localizer["Good"]</option>
+                        <option value="Fair">@localizer["Fair"]</option>
+                    </select>
+                    
+                </div>
+            
+            
+
+           
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+
+                    <label for="highgSchoolGraduationDate" class="form-label">@localizer["Graduation Date"]</label>
+                    <input type="date" name="highgSchoolGraduationDate" required id="highgSchoolGraduationDate" placeholder="" />
+                </div>
+                <div class="form-group">
+
+                    <label for="highgSchoolMajor" class="form-label">@localizer["Major"]</label>
+                    <input type="text" name="highgSchoolMajor" id="highgSchoolMajor" required placeholder="@localizer["E.g."] @localizer["Science Section , Literary Section"]" />
+                </div>
+            </div>
+        </div> 
+        <hr />
+        <div>
+            <p> @localizer["Institute/ University"]:  </p>
+
+            <div class="form-row" >
+                <div class="form-group">
+                    <label for="universityName" class="form-label">@localizer["University & Fuculty Name"]</label>
+                    <input type="text" name="universityName" required id="universityName" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label for="universityDegree" class="form-label">@localizer["Degree"]</label>
+
+                    <select name="universityDegree" required id="universityDegree" class="form-control">
+                        <option value="Excellent">@localizer["Excellent"]</option>
+                        <option value="Very Good">@localizer["Very Good"]</option>
+                        <option value="Good">@localizer["Good"]</option>
+                        <option value="Fair">@localizer["Fair"]</option>
+                    </select>
+                    
+                </div>
+                
+            
+
+           
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+
+                    <label for="universityGraduationDate" class="form-label">@localizer["Graduation Date"]</label>
+                    <input type="date" required name="universityGraduationDate" id="universityGraduationDate" placeholder="" />
+                </div>
+                <div class="form-group">
+
+                    <label for="universityMajor" class="form-label">@localizer["Major"]</label>
+                    <input type="text" required name="universityMajor" id="universityMajor" placeholder="@localizer["E.g."] @localizer["Software Developer"]" />
+                </div>
+
+            </div>
+        </div>
+        <hr />
+        <div class="form-row">
+                <div class="form-group">
+                <label for="additionalTraining">@localizer["Additional Training/ Professional Qualifications"]:</label>
+                <textarea class="form-control" required name="additionalTraining" id="additionalTraining" rows="3"></textarea>
+                </div>
+           <div class="form-group">
+                <label for="computerSkills" class="form-label">@localizer["Computer Skills"]:  </label>
+
+                <select name="computerSkills" required id="computerSkills" class="form-control">
+                    <option value="Excellent">@localizer["Excellent"]</option>
+                    <option value="Good">@localizer["Good"]</option>
+                    <option value="Fair">@localizer["Fair"]</option>
+                </select>
+
+           </div>
+
+
+        </div>
+    </fieldset>
+    <button type="button" id="btnEducation" class="ml-3 btn btn-primary" style="background-color:#0011f6;margin-left:10px">@localizer["Next"]</button>
+</form>
+<script>
+    $(function () {
+
+        $("#educationForm").validate({
+         
+            errorClass: "validationError"
+        });
+
+        $("#btnEducation").click(function () {
+
+            if ($("#educationForm").valid()) {
+
+                window.location.replace(window.location.origin.concat("/HR/#collapseLang"));
+            }
+        });
+    });
+
+</script>

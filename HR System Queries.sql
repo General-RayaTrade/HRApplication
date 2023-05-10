@@ -1,0 +1,25 @@
+﻿select top 1 * from HR_Interview_Schedule his order by his.Request_ID desc
+
+select DATEADD(s,expr.From_x, '1-1-1970 2:00:00') as From_x ,DATEADD(s,expr.To_x ,'1-1-1970 2:00:00') as To_x ,expr.Name_of_Organization,expr.Reason_for_Leaving from HR_Interview_Schedule his
+                    join HR_interview_schedule_experien expr on his.Primary_Key = expr.Primary_Key 
+                    where his.Request_ID = 000000000085473
+
+select lang.Name,lang.Written,lang.Spoken,lang.Understanding from HR_Interview_Schedule his
+join HR_Interview_Schedule_Languang lang on his.Primary_Key = lang.Primary_Key
+where his.Request_ID = 000000000085473
+
+INSERT INTO [dbo].[T805](C1,C2,C3,C4,C5,C6,C7,C8,C112,C536870914,C536870915,C536870916,C536870917,C536870918,C536870919,C536870920,C536870921,C536870922,C536870923,C536870924,C536870937,C536870940,C536870942,C536870943,C536870945,C536870946,C536870947,C536870948,C536870949,C536870950,C536870951,C536870953,C536870954,C536871084,C536870957,C536870958,C536870960,C536870961,C536870962,C536870963,C536870964,C536870965,C536870966,C536870967,C536870968,C536870971,C536870972,C536870973,C536870959,C536870969,C536870970,C536870975,C536870976,C536870977,C536870978,C536870979,C536870980,C536870981,C536870982 )
+                                                VALUES  (000000000085446, 'Online App', DATEDIFF(s, '1-1-1970 2:00:00',getdate()),
+                                                ';0;', 'Online App',  DATEDIFF(s, '1-1-1970 2:00:00',getdate()),0,'.',  ';0;',
+                                                'ziad', DATEDIFF(s, '1-1-1970 2:00:00',getdate()),'10','01067452343',
+                                                'ziad@gmail.com', 'cairo',NULL,NULL,NULL, NULL,NULL,NULL, 0,'online app',0,0, DATEDIFF(s, '1-1-1970 2:00:00',getdate()),
+                                                NULL,NULL,DATEDIFF(s, '1-1-1970 2:00:00',getdate()), DATEDIFF(s, '1-1-1970 2:00:00',getdate()), 
+                                                DATEDIFF(s, '11-11-1970 2:00:00',getdate()), '01067452332',0,'Raya Trade LOB',
+                                                'cairo','single', '29709012717892', DATEDIFF(s,'11-11-1970 2:00:00','11-11-1970 2:00:00'),'cairo','asd',
+                                                'asd','asd','asd', 'asd','asd',
+                                                'asd','asd','asd',
+                                                DATEDIFF(s, '11-11-1970 2:00:00',getdate()), 'asad','sad', 'asd','ass',
+                                                'asd',DATEDIFF(s,'1-1-1970 2:00:00','01-11-1970 2:00:00'),'asd','asd',
+                                                DATEDIFF(s,'11-11-1970 2:00:00','11-11-1970 2:00:00'),'asd');
+
+INSERT INTO [dbo].[T805](C1,C2,C3,C4,C5,C6,C7,C8,C112,C536870914,C536870915,C536870916,C536870917,C536870918,C536870919,C536870920,C536870921,C536870922,C536870923,C536870924,C536870937,C536870940,C536870942,C536870943,C536870945,C536870946,C536870947,C536870948,C536870949,C536870950,C536870951,C536870953,C536870954,C536871084,C536870957,C536870958,C536870960,C536870961,C536870962,C536870963,C536870964,C536870965,C536870966,C536870967,C536870968,C536870971,C536870972,C536870973,C536870959,C536870969,C536870970,C536870975,C536870976,C536870977,C536870978,C536870979,C536870980,C536870981,C536870982 )                                                VALUES  ('000000000085449', 'Online App', DATEDIFF(s, '1-1-1970 2:00:00',getdate()),';0;', 'Online App',  DATEDIFF(s, '1-1-1970 2:00:00',getdate()),0,'.',  ';0;',                                                'Ziad Ahmed Mohamed', DATEDIFF(s, '1-1-1970 2:00:00',getdate()),'10','01067452363',                                                'ziad5827@gmail.com', 'Software Developer',NULL,NULL,NULL, NULL,NULL,NULL, 0,'online app',0,0, DATEDIFF(s, '1-1-1970 2:00:00',getdate()),                                                NULL,NULL,DATEDIFF(s, '1-1-1970 2:00:00',getdate()), DATEDIFF(s, '1-1-1970 2:00:00',getdate()),                                                 DATEDIFF(s, '1-1-1970 2:00:00',getdate()), '01067452363',0,'Raya Trade LOB',                                                'الجيزة الشيخ زايد الحي الاول المجاورة التالتة','.,m,', '29709012717839', DATEDIFF(s,'1-1-1970 2:00:00','7‏‏/3‏‏/2023 12:00:00 ص'),'Software Developer','الثانوية العسكرية ',                                                'حاسبات ومعلومات أسيوط','lkj','Excellent', 'Excellent','Excellent',                                                'asas','no','no',                                                DATEDIFF(s, '1-1-1970 2:00:00',getdate()), 'Excellent','Excellent', 'Excellent','Excellent',                                                'Excellent',DATEDIFF(s,'1-1-1970 2:00:00','1‏‏/4‏‏/2023 12:00:00 ص'),'IS','علمي رياضة',                                                DATEDIFF(s,'1-1-1970 2:00:00','28‏‏/3‏‏/2023 12:00:00 ص'),'Excellent')

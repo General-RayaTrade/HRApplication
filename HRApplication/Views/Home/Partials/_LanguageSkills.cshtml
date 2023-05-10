@@ -1,0 +1,153 @@
+﻿
+
+<form method="post">
+    <fieldset id="setLanguages">
+        <div class="d-flex w-100 justify-content-end">
+            <button type="button" id="addMoreLanguages" class=" btn btn-primary" style="background-color:#0011f6">+ @localizer["Add More Languages"] +</button>
+        </div>
+        <div class="LanguagesContainer">
+            <div>
+                <p>@localizer["Arabic"]</p>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="arabicSpoken" class="form-label">@localizer["Spoken"]</label>
+                        <select name="arabicSpoken" id="arabicSpoken" class="form-control">
+                            <option value="Excellent">@localizer["Excellent"]</option>
+                            <option value="Good">@localizer["Good"]</option>
+                            <option value="Fair">@localizer["Fair"]</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="arabicWritten" class="form-label">@localizer["Written"]</label>
+                        <select name="arabicWritten" id="arabicWritten" class="form-control">
+                            <option value="Excellent">@localizer["Excellent"]</option>
+                            <option value="Good">@localizer["Good"]</option>
+                            <option value="Fair">@localizer["Fair"]</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="arabicUnderstanding" class="form-label">@localizer["Understanding"]</label>
+                        <select name="arabicUnderstanding" id="arabicUnderstanding" class="form-control">
+                            <option value="Excellent">@localizer["Excellent"]</option>
+                            <option value="Good">@localizer["Good"]</option>
+                            <option value="Fair">@localizer["Fair"]</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+            <hr />
+            <div>
+            <p>@localizer["English"]</p>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="englishSpoken" class="form-label">@localizer["Spoken"]</label>
+                    <select name="englishSpoken" id="englishSpoken" class="form-control">
+                        <option value="Excellent">@localizer["Excellent"]</option>
+                        <option value="Good">@localizer["Good"]</option>
+                        <option value="Fair">@localizer["Fair"]</option>
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <label for="englishWritten" class="form-label">@localizer["Written"]</label>
+                    <select name="englishWritten" id="englishWritten" class="form-control">
+                        <option value="Excellent">@localizer["Excellent"]</option>
+                        <option value="Good">@localizer["Good"]</option>
+                        <option value="Fair">@localizer["Fair"]</option>
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <label for="englishUnderstanding" class="form-label">@localizer["Understanding"]</label>
+                    <select name="englishUnderstanding" id="englishUnderstanding" class="form-control">
+                        <option value="Excellent">@localizer["Excellent"]</option>
+                        <option value="Good">@localizer["Good"]</option>
+                        <option value="Fair">@localizer["Fair"]</option>
+                    </select>
+
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </fieldset>
+    <button type="button" id="btnLang" class="ml-3 btn btn-primary" style="background-color:#0011f6;margin-left:10px">@localizer["Next"]</button>
+
+</form>
+
+<script>
+    $(function () {
+
+        $(".LanguagesContainer").fadeIn(300);
+        $("#addMoreLanguages").fadeIn(300);
+        for (let i = 0; i < $(".LanguagesContainer").length; i++) {
+            $(`#Lang_Name${i == 0 ? '' : i}`).prop("required", true);
+            $(`#Lang_Spoken${i == 0 ? '' : i}`).prop("required", true);
+            $(`#Lang_Written${i == 0 ? '' : i}`).prop("required", true);
+            $(`#Lang_Understanding${i == 0 ? '' : i}`).prop("required", true);
+        }
+
+        $("#addMoreLanguages").click(function(){
+            let counter = $(".LanguagesContainer").length;
+            $("#setLanguages").append(`<div class="LanguagesContainer" id="LanguagesContainer${counter}">
+                <label> @localizer["Language Name"] : </label>
+                    <input type="text" name="Lang_Name" required id="Lang_Name${counter}" class="form-controle" placeholder="@localizer["E.g."] @localizer["German"]"/>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="Lang_Spoken${counter}" class="form-label">@localizer["Spoken"]</label>
+                        <select name="Lang_Spoken" id="Lang_Spoken${counter}" class="form-control">
+                            <option value="Excellent">@localizer["Excellent"]</option>
+                            <option value="Good">@localizer["Good"]</option>
+                            <option value="Fair">@localizer["Fair"]</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="Lang_Written${counter}" class="form-label">@localizer["Written"]</label>
+                        <select name="Lang_Written" id="Lang_Written${counter}" class="form-control">
+                            <option value="Excellent">@localizer["Excellent"]</option>
+                            <option value="Good">@localizer["Good"]</option>
+                            <option value="Fair">@localizer["Fair"]</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="Lang_Understanding${counter}" class="form-label">@localizer["Understanding"]</label>
+                        <select name="Lang_Understanding" id="Lang_Understanding${counter}" class="form-control">
+                            <option value="Excellent">@localizer["Excellent"]</option>
+                            <option value="Good">@localizer["Good"]</option>
+                            <option value="Fair">@localizer["Fair"]</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                    <div class="d-flex justify-content-end">
+
+                        <button type="button" class="btn btn-danger removeExpr "  onclick="removeLang('#LanguagesContainer${counter}');"  > - @localizer["Remove Language"] - </button>
+                    </div>
+            </div>`);
+
+            $(`#LanguagesContainer${numberOfExperienceContaiers}`).hide().fadeIn(300);
+        });
+        $("#btnLang").click(function () {
+
+            window.location.replace(window.location.origin.concat("/HR/#collapseEmpLoyer"));
+           
+        });
+    });
+    function removeLang(divId) {
+
+        $(divId).fadeOut(300).empty();
+        $(divId).remove();
+    }
+</script>

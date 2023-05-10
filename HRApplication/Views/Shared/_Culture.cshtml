@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using System.Globalization;
+@inject IOptions<RequestLocalizationOptions> locOptions;
+
+@{
+    var culture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureList = locOptions.Value.SupportedUICultures.Select(x => new SelectListItem { Value = x.Name, Text = x.NativeName }).ToList();
+    var returnUrl = string.IsNullOrWhiteSpace(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}{Context.Request.QueryString}";
+    var isArabic = CultureInfo.CurrentCulture.Name.StartsWith("ar");
+}
+
+    <form asp-action="SetLanguage" asp-controller="Home" asp-route-returnUrl="@returnUrl" method="post">
+        <input type="hidden" name="culture" value="@(isArabic? cultureList[0].Value:cultureList[1].Value)" />
+        <button class="btn btn-primary" type="submit">@(isArabic? "English" : "العربية")</button>
+        @*
+            <select name="culture" asp-for="@culture.RequestCulture.UICulture.Name" asp-items="@cultureList" onchange="this.form.submit();" id="culture" class="lang-en nav-link"></select>
+        *@
+    </form>
+
+
+<script type="text/javascript">
+
+</script>

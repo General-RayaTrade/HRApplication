@@ -1,0 +1,155 @@
+﻿
+<form id="employerFrom">
+
+    <fieldset id="employerFieldSet">
+        <div class="d-flex w-100 justify-content-end">
+
+        @*<button type="button"  id="addMore" class=" btn btn-primary" style="background-color:#0011f6">+ Add more experience</button>*@
+        </div>
+        <div class="experienceContaier">
+
+            <div class="form-row">
+            <div class="form-group">
+                <label for="organization" class="form-label">Name of Organization:</label>
+                    <input disabled type="text" name="organization" required id="organization" placeholder="Raya Holding" />
+            </div>
+
+            <div class="form-group">
+                <label for="jobTitle" class="form-label">Job title</label>
+                <input disabled type="text" required name="jobTitle" id="jobTitle" placeholder="Software Developer" />
+            </div>
+            <div class="form-group">
+                <label for="salary" class="form-label">Gross Salary</label>
+                <input disabled type="number" name="salary" required id="salary" placeholder="Ex. 5000" />
+            </div>
+        </div>
+            <div class="form-row">
+            <div class="form-group">
+                <label for="from" class="form-label">From</label>
+                <input disabled type="date" name="from" required id="from" placeholder="" />
+            </div>
+            <div class="form-group">
+                <label for="To" class="form-label">To</label>
+                <input disabled type="date" name="To" id="To" required placeholder="" />
+            </div>
+            <div class="form-group">
+                <label for="reasonOfLeaving" class="form-label">Reason for Leaving</label>
+                <textarea disabled class="form-control" required name="reasonOfLeaving" id="reasonOfLeaving" rows="3"></textarea>
+
+            </div>
+            
+        </div>
+        </div>
+        <div class="form-row">
+
+            <div class="form-group">
+
+            <input disabled type="checkbox" class="d-inline-block w-auto" id="notHasExr" />
+            <label for="notHasExr" class="w-auto d-inline-block">I don't have Experience yet</label>
+            </div>
+        </div>
+        
+
+    </fieldset>
+    <button type="button" id="btnEmployer" class="ml-3 btn btn-primary" style="background-color:#0011f6;margin-left:10px">Next</button>
+</form>
+
+
+<script>
+    $(function(){
+        $("#notHasExr").click(function(){
+            if($(this).is(":checked")){
+                $(".experienceContaier").fadeOut(300);
+                $("#addMore").fadeOut(300);
+                for (let i = 0 ; i < $(".experienceContaier").length ; i++ ){
+              
+                    $(`#organization${i==0?'':i}`).prop("required" , false);
+                    $(`#jobTitle${i == 0 ? '' : i}`).prop("required", false);
+                    $(`#salary${i == 0 ? '' : i}`).prop("required", false);
+                    $(`#from${i == 0 ? '' : i}`).prop("required", false);
+                    $(`#To${i == 0 ? '' : i}`).prop("required", false);
+                    $(`#reasonOfLeaving${i==0?'':i}`).prop("required", false);
+                }
+            }else{
+
+                $(".experienceContaier").fadeIn(300);
+                $("#addMore").fadeIn(300);
+                for (let i = 0; i < $(".experienceContaier").length; i++) {
+                    $(`#organization${i == 0 ? '' : i}`).prop("required", true);
+                    $(`#jobTitle${i == 0 ? '' : i}`).prop("required", true);
+                    $(`#salary${i == 0 ? '' : i}`).prop("required", true);
+                    $(`#from${i == 0 ? '' : i}`).prop("required", true);
+                    $(`#To${i == 0 ? '' : i}`).prop("required", true);
+                    $(`#reasonOfLeaving${i == 0 ? '' : i}`).prop("required", true);
+                }
+            }
+        })
+        $("#addMore").click(function(){
+            let numberOfExperienceContaiers = $(".experienceContaier").length;
+            //if(numberOfExperienceContaiers <3){
+                $("#employerFieldSet").append(`
+                    <div class="experienceContaier " id="experienceContaier${numberOfExperienceContaiers}">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                    <label for="organization${numberOfExperienceContaiers}" class="form-label">Name of Organization${numberOfExperienceContaiers+1}:</label>
+                                        <input type="text" required name="organization${numberOfExperienceContaiers}" id="organization${numberOfExperienceContaiers}" placeholder="Raya Holding" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="jobTitle${numberOfExperienceContaiers}" class="form-label">Job title</label>
+                                    <input type="text" required name="jobTitle${numberOfExperienceContaiers}" id="jobTitle${numberOfExperienceContaiers}" placeholder="Software Developer" />
+                            </div>
+                            <div class="form-group">
+                                <label for="salary${numberOfExperienceContaiers}" class="form-label">Gross Salary</label>
+                                        <input type="number" required name="salary${numberOfExperienceContaiers}" id="salary${numberOfExperienceContaiers}" placeholder="Ex. 5000" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="from${numberOfExperienceContaiers}" class="form-label">From</label>
+                                        <input type="date" required name="from${numberOfExperienceContaiers}" id="from${numberOfExperienceContaiers}" placeholder="" />
+                            </div>
+                            <div class="form-group">
+                                <label for="To${numberOfExperienceContaiers}" class="form-label">To</label>
+                                        <input type="date" required name="To${numberOfExperienceContaiers}" id="To${numberOfExperienceContaiers}" placeholder="" />
+                            </div>
+                            <div class="form-group">
+                                <label for="reasonOfLeaving${numberOfExperienceContaiers}" class="form-label">Reason for Leaving</label>
+                                        <textarea class="form-control" required name="reasonOfLeaving${numberOfExperienceContaiers}" id="reasonOfLeaving${numberOfExperienceContaiers}" rows="3"></textarea>
+
+                            </div>
+
+                        </div>
+                         <div class="d-flex justify-content-end">
+
+                            <button type="button" class="btn btn-danger removeExpr "  onclick="removeExpr('#experienceContaier${numberOfExperienceContaiers}');"  > - Remove Experience </button>
+                        </div>
+                   </div>
+                `);
+                
+                $(`#experienceContaier${numberOfExperienceContaiers}`).hide().fadeIn(300);
+           // }
+            
+        });
+       
+       
+            $("#btnEmployer").click(function () {
+
+                window.location.replace(window.location.href.toString().split(window.location.hash)[0].concat("#collapseAddintionalInfo"))
+
+                    //window.location.replace(window.location.origin.concat("#collapseAddintionalInfo"));
+            });
+    });
+        
+
+   
+
+    function removeExpr (divId) {
+        
+        $(divId).fadeOut(300).empty();
+        $(divId).remove();
+    }
+</script>
+
+
